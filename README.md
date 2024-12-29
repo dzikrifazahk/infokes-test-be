@@ -1,5 +1,5 @@
 
-# PT Infokes Test
+# PT Infokes - Technical Test
 
 this backend for making a windows explorer
 
