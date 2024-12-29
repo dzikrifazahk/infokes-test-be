@@ -1,7 +1,8 @@
 
 # PT Infokes - Technical Test
 
-this backend for making a windows explorer
+This backend for making a windows explorer.
+Please Go To http://localhost:{YOUR_PORT}/docs
 
 
 ## Tech Stack
