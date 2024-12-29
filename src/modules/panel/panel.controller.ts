@@ -41,9 +41,6 @@ export class PanelController {
     type: CreateOrUpdatePanelDto,
   })
   async findAll(@Query('isHeader') isHeader?: string) {
-    console.log(isHeader);
-    console.log('asda',isHeader[0]);
-
     const response = await this.panelService.findAll(isHeader[0]);
     return new CommonResponse('Success Get All Data', response);
   }

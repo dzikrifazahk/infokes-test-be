@@ -82,12 +82,10 @@ export class PanelService {
   async findAll(header?: string) {
     const where: any = {};
 
-    console.log('serv',header)
     if (header !== undefined) {
       where.isHeader = header;
     }
 
-    console.log("con",where);
     const datas = await this.panelRepository.find({ where });
 
     if (!datas.length) {
