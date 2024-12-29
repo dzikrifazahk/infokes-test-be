@@ -1,0 +1,25 @@
+services:
+  postgresql:
+    container_name: pgsql
+    image: postgres:11
+    restart: unless-stopped
+    volumes:
+      - "./pg_data:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_PASSWORD=p@ssw0rd
+      - POSTGRES_DB=test-infokes
+    ports:
+      - "5432:5432"
+    shm_size: 1g
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+
+volumes:
+  pg_data:
+    driver: local
+  mysql_data:
+    driver: local
