@@ -7,7 +7,7 @@ Please Go To http://localhost:{YOUR_PORT}/docs
 
 ## Tech Stack
 
-**BACKEND:** NestJS, Scalar, TypeORM, PostgreSQL, Docker
+**BACKEND:** NestJS, Scalar, TypeORM, PostgreSQL, Docker, Node: 22.11.0
 
 
 ## Installation
