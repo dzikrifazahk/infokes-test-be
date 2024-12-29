@@ -5,6 +5,7 @@ import { apiReference } from '@scalar/nestjs-api-reference';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('Windows Explorer - Test Infokes')
     .setDescription('Windows Explorer API description')

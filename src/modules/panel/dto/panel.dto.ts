@@ -27,3 +27,10 @@ export class CreateOrUpdatePanelDto {
     description?: string;
 }
 
+
+export interface IFilterPanel {
+    name?: string;
+    parentId?: string;
+    position?: string;
+    isHeader?: boolean;
+}

@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateOrUpdatePanelDto } from './dto/panel.dto';
+import { CreateOrUpdatePanelDto, IFilterPanel } from './dto/panel.dto';
 import { Repository } from 'typeorm';
 import { PanelEntity } from './entities/panel.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -79,10 +79,18 @@ export class PanelService {
     }
   }
 
-  async findAll() {
-    const datas = await this.panelRepository.find();
+  async findAll(header?: string) {
+    const where: any = {};
 
-    if (!datas) {
+    console.log('serv',header)
+    if (header !== undefined) {
+      where.isHeader = header;
+    }
+
+    console.log("con",where);
+    const datas = await this.panelRepository.find({ where });
+
+    if (!datas.length) {
       throw new NotFoundException('No Panels Found');
     }
 

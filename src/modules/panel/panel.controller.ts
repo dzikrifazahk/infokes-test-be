@@ -8,6 +8,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import { CreateOrUpdatePanelDto } from './dto/panel.dto';
 import { CommonResponse } from 'src/common/common-response';
@@ -39,8 +40,11 @@ export class PanelController {
   @ApiResponse({
     type: CreateOrUpdatePanelDto,
   })
-  async findAll() {
-    const response = await this.panelService.findAll();
+  async findAll(@Query('isHeader') isHeader?: string) {
+    console.log(isHeader);
+    console.log('asda',isHeader[0]);
+
+    const response = await this.panelService.findAll(isHeader[0]);
     return new CommonResponse('Success Get All Data', response);
   }
 
@@ -69,7 +73,7 @@ export class PanelController {
     const response = await this.panelService.getPanelWithChildren(id);
     return new CommonResponse('Success Get One Data', response);
   }
-  
+
   @Delete(':id')
   @ApiOperation({
     summary: 'Delete Panel',
